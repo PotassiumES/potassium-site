@@ -1,0 +1,41 @@
+@import url("/static/potassium-es/css/potassium-es.css");
+@import url("/static/potassium-components/css/potassium-components.css");
+
+/*** App styles ***/
+
+:root {
+	/* custom colors */
+	--darkest-gray:	#222;
+	--dark-gray:	#666;
+	--gray:			#888;
+	--light-gray:	#DDD;
+
+	--darkest-blue:	#014;
+	--dark-blue:	#018;
+	--blue:			#01B;
+	--light-blue:	#01D;
+
+	--darkest-red:	#410;
+	--dark-red:		#810;
+	--red:			#B10;
+	--light-red:	#D10;
+
+
+	/* color scheme */
+	--background-color: white;
+
+	--light-primary-color:		var(--light-gray);
+	--primary-color:			var(--gray);
+	--dark-primary-color:		var(--dark-gray);
+
+	--light-secondary-color:	var(--light-blue);
+	--secondary-color:			var(--blue);
+	--dark-secondary-color:		var(--dark-blue);
+
+	--light-alert-color:		var(--light-red);
+	--alert-color:				var(--red);
+	--dark-alert-color:			var(--dark-red);
+
+	--light-base-color:			var(--gray);
+	--base-color:				var(--darkest-gray);
+}
