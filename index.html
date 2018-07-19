@@ -1,25 +1,33 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 		<title>PotassiumES</title>
 		<style>
+			@font-face {
+				font-family: 'miso-regular';
+				src: url('./fonts/miso/miso-regular-webfont.woff2') format('woff2'), url('./fonts/miso/miso-regular-webfont.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
 			body {				
 				font-size: 20px;
-				font-family: sans-serif;
+				font-family: 'miso-regular', sans-serif;
 			}
 			#content {
 				text-align: center;
 				position: absolute;
-				top: 50%;
+				top: 25%;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%, -25%);
 			}
 			#content h1 {
+				white-space: nowrap;
 				margin-top: 0;
 			}
 
 			a, a:visited, a:active {
-				color: pink;
+				color: rgb(255, 154, 154);
 			}
 		</style>
 	</head>
