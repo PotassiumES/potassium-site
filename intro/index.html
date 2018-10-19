@@ -61,7 +61,7 @@
 
 			function init(){
 				for(let section of sections){
-					document.getElementById(section).addEventListener('click', ev => {
+					document.getElementById(section + '-tab').addEventListener('click', ev => {
 						document.location.hash = '#' + section
 						setTab(section)
 					})
@@ -80,7 +80,7 @@
 
 			function setTab(section){
 				for(let sect of sections){
-					document.getElementById(sect).style['background-color'] = sect === section ? 'rgb(255, 152, 203)' : ''
+					document.getElementById(sect + '-tab').style['background-color'] = sect === section ? 'rgb(255, 152, 203)' : ''
 				}
 				document.querySelectorAll('.tab-content').forEach(el => {
 					el.style['display'] = 'none'
@@ -111,11 +111,11 @@
 			<p>In the sections below you'll find brief introductions to each role and how PotassiumES gives us all super-powers:</p>
 
 			<ul id="tabs">
-				<li id="design">UX and Visual Design</li>
-				<li id="art">Spatial Graphics and Audio</li>
-				<li id="text">Narrative and Information</li>
-				<li id="pm">Product and Project Management</li>
-				<li id="tech">Software Engineering and Ops</li>
+				<li id="design-tab">UX and Visual Design</li>
+				<li id="art-tab">Spatial Graphics and Audio</li>
+				<li id="text-tab">Narrative and Information</li>
+				<li id="pm-tab">Product and Project Management</li>
+				<li id="tech-tab">Software Engineering and Ops</li>
 			</ul>
 
 			<section class="tab-content" id="design-content">
@@ -219,10 +219,6 @@
 			<section class="tab-content" id="text-content">
 				<h2>Narrative and Information</h2>
 
-				<h3>
-					What writers do
-				</h3>
-
 				<p>Storytellers...</p>
 				<ul>
 					<li>Create worlds, histories, and characters</li>
@@ -261,25 +257,33 @@
 			<section class="tab-content" id="pm-content">
 				<h2>Product and Project Management</h2>
 
-				<h3>
+				<p>
 					Product managers...
-				</h3>
+				</p>
 				<ul>
-					<li>???</li>
+					<li>Gather product and customer requirements</li>
+					<li>Ensure that a product is continuously successful</li>
+					<li>Hold a long term view to coordinate overall direction</li>
 				</ul>
 
-				<h3>
+				<p>
 					Project managers...
-				</h3>
+				</p>
 				<ul>
-					<li>???</li>
+					<li>Manage risk and unexpected challenges</li>
+					<li>Coordinate projects' schedules and resources</li>
+					<li>Align designers, artists, writers, and coders</li>
 				</ul>
 
 				<h3>
 					Challenges on the wider web
 				</h3>
 
-				<p>When the web adds big new platforms it usually comes with a wave of tools that ask you to replace what already exists. <span class="boom">The web is too big to throw away and start over</span>, no matter how interesting or valuable XR could be.</p>
+				<p>When the web adds big new platforms it usually causes a wave of tools that ask you to replace what already exists. <span class="boom">The web is too big to throw away and start over</span> no matter how interesting or valuable XR could be.</p>
+
+				<p><span class="boom">The next billion web users will come from new markets</span> where you don't speak the language and don't understand the culture. How will these new users learn to use technologies like XR headsets at the same time that they learn to use the flat web?</p>
+
+				<p>We've all spent years (and sometimes tears) to foster our people and to make certain that they're at the top of their field. To throw away all of that experience and to <span class="boom">risk losing people because of too much change</span> can be a project killer.</p>
 
 				<h3>
 					What PotassiumES Provides
@@ -293,7 +297,7 @@
 
 				<p class="big-boom">Your ops team already knows how to deploy the web.</p> 
 
-				<p><strong>Retraining is not an option:</strong> We've all spent years fostering our people and making sure that they're at the top of their field. PotassiumES is designed to be very familiar to your existing team members and also to people coming from other industries like 3D artists, sound designers, and immersive experience designers.</p>
+				<p><strong>Retraining is not an option:</strong> PotassiumES is designed to be familiar to your existing team members and welcoming to people from other industries like 3D artists, sound designers, and immersive experience designers.</p>
 
 				<p class="big-boom">Empower your current team and attract new people.</p>
 
@@ -302,18 +306,18 @@
 			<section class="tab-content" id="tech-content">
 				<h2>Software Engineering and Ops</h2>
 
-				<h3>
+				<p>
 					Product engineers...
-				</h3>
+				</p>
 				<ul>
 					<li>Create new features</li>
 					<li>Maintain the health of the stack</li>
 					<li>Communicate technical possibilities and constraints</li>
 				</ul>
 				
-				<h3>
+				<p>
 					Operations engineers...
-				</h3>
+				</p>
 				<ul>
 					<li>Create stable deployments</li>
 					<li>Maintain the health of the service</li>
