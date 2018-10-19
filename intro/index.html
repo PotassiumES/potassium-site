@@ -1,0 +1,367 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>PotassiumES • Introduction</title>
+
+		<link rel="stylesheet" href="../css/site.css" type='text/css'>
+		<style>
+			body {
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 30px 15px;
+			}
+			h1 { text-align: center; }
+			h2 { line-height: 1.2em; }
+			#story {
+				font-size: 26px;
+				line-height: 32px;
+			}
+
+			#tabs {
+				list-style: none;
+				text-align: center;
+				padding-left: 0;
+				display: grid;
+				grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+				margin-bottom: 0;
+			}
+			#tabs li {
+				border: solid 1px #444;
+				border-left: none;
+				padding: 5px;
+				cursor: pointer;
+			}
+			#tabs li:first-child {
+				border-left: solid 1px #444;
+			}
+
+			section.tab-content {
+				padding: 20px 10px;
+				border: solid 1px #444;
+				border-top: none;
+			}
+
+			section.tab-content h2 {
+				margin-top: 0;
+			}
+
+			.big-boom {
+				color: #6688FF;
+				font-size: 1.1em;
+			}
+
+			.boom {
+				color: #6688FF;
+			}
+		</style>
+
+		<script>
+			const sections = ['design', 'art', 'text', 'pm', 'tech']
+
+			function init(){
+				for(let section of sections){
+					document.getElementById(section).addEventListener('click', ev => {
+						document.location.hash = '#' + section
+						setTab(section)
+					})
+				}
+				if(document.location.hash){
+					const hash = document.location.hash.substring(1)
+					if(sections.includes(hash)){
+						setTab(hash)
+					} else {
+						setTab(sections[0])
+					}
+				} else {
+					setTab(sections[0])
+				}
+			}
+
+			function setTab(section){
+				for(let sect of sections){
+					document.getElementById(sect).style['background-color'] = sect === section ? 'rgb(255, 152, 203)' : ''
+				}
+				document.querySelectorAll('.tab-content').forEach(el => {
+					el.style['display'] = 'none'
+				})
+				document.getElementById(section + '-content').style['display'] = 'block'
+			}
+
+			document.addEventListener('DOMContentLoaded', init)
+		</script>
+	</head>
+	<body>
+		<h1>
+			<a href="../">&#x1F338 PotassiumES &#x1F338</a>
+		</h1>
+
+		<section id="story">
+			<h2>Introduction</h2>
+
+			<p>This is the story of PotassiumES, a free and open tool for making amazing sites on the <a href="../wider-web/">wider web</a>. If you're not sure about the wider web (and few people are yet) then click that link for a two minute overview.
+			</p>
+
+			<p><strong>For the twitchy:</strong> This is a quick read but if you'd prefer to hop right into making the wider web then click over to the <a href="https://github.com/PotassiumES/potassium-samples">samples repo</a>, <a href="https://github.com/PotassiumES/potassium-es">core repo</a>, or the <a href="https://doc.esdoc.org/github.com/PotassiumES/potassium-es/">docs</a>.</p>
+
+			<h2>Designers, Artists, Writers, Coders, and the PMs who &#x1F496 them.</h2>
+
+			<p>XR (augmented and virtual reality) is coming to browsers and that means that many new sorts of people will be involved in making the wider web. PotassiumES welcomes these new teams with wide(r) open arms.</p>
+
+			<p>In the sections below you'll find brief introductions to each role and how PotassiumES gives us all super-powers:</p>
+
+			<ul id="tabs">
+				<li id="design">UX and Visual Design</li>
+				<li id="art">Spatial Graphics and Audio</li>
+				<li id="text">Narrative and Information</li>
+				<li id="pm">Product and Project Management</li>
+				<li id="tech">Software Engineering and Ops</li>
+			</ul>
+
+			<section class="tab-content" id="design-content">
+				<h2>User Experience and Visual Design</h2>
+
+				<h3>
+					What designers do
+				</h3>
+
+				<p>User experience designers...</p>
+				<ul>
+					<li>Understand and represent the user</li>
+					<li>Nail down important scenarios and workflows</li>
+					<li>Define the user's journey from goal to success</li>
+				</ul>
+
+				<p>Visual designers...</p>
+				<ul>
+					<li>Understand the user and how they process information</li>
+					<li>Define a visual language with space, color, shape, and fonts</li>
+					<li>Design and communicate visual elements with the team</li> 
+				</ul>
+
+				<h3>
+					Challenges on the wider web
+				</h3>
+
+				<p>If we thought that adding responsive layouts for mobile and PC screens was extra work, <span class="boom">what if we add two radically different display types</span>: handheld portal displays and immersive headsets?!</p>
+
+				<p>Now that the users can browse on a mobile phone, a laptop, a tablet that looks onto an augmented world, and a headset with a floating browser, <span class="boom">how do we create user flows that work across all of these platforms</span>?</p>
+
+				<p>Design systems are all the rage but not one of them address UI elements that overlay a portal display or spatial controls that respond to <span class="boom">tracked controllers, hand gestures, and voice commands</span>. How do we even spec out sizes and animations for 3D elements?</p>
+
+				<h3>
+					What PotassiumES provides
+				</h3>
+
+				<p><strong>Component library</strong>: Browsers provide a lot of support for flat page UI elements. Buttons, checkboxes, dropdowns, and more come "for free". Unfortunately, none of that is true for overlay and spatial controls so PotassiumES provides a set of pre-made UI components that provide overlay and spatial controls "for free."</p>
+
+				<p class="big-boom">You don't have to start from scratch when designing 3D!</p>
+
+				<p><strong>PotassiumES Style System (KSS)</strong>: In the last few years CSS has added flexbox and grid layouts, making all of our lives easier. We want to ride that wave so KSS provides the same syntax and control as CSS but for overlay and spatial controls.</p>
+
+				<p class="big-boom">You can use KSS to style 2D and 3D just like CSS!</p>
+
+				<p><strong>Input abstraction</strong>: No longer can we respond to just keyboards, mice, and touchscreens. There is a wave of new input hardware and software coming and the only way to handle the constant change is to take in the tsunami of input and connect it to higher level actions. PotassiumES uses the excellent Mozilla Action-Input library to solve this problem.</p>
+
+				<p class="big-boom">When new input types arrive, you'll be ready!</p>
+
+				<p><strong>Sample apps</strong>: Hand waving is fine and all, but nothing is as real as poking and prodding working examples to get a feel for a new tool. PotassiumES's sample applications can be set up on your Mac or PC in about 15 minutes and they provide links to all of the documentation that you'll need to get started.</p>			
+			</section>
+
+			<section class="tab-content" id="art-content">
+				<h2>Spatial Graphics and Audio</h2>
+
+				<h3>
+					What 3D artists and sound designers do
+				</h3>
+
+				<p>3D artists...</p>
+				<ul>
+					<li>Sculpt and model hard and organic shapes</li>
+					<li>Create materials using images and code</li>
+					<li>Rig and animate characters and environments</li>
+				</ul>
+
+				<p>Sound designers...</p>
+
+				<ul>
+					<li>Generate and record sounds for events and environments</li>
+					<li>Orchestrate effects and tracks that react to user actions</li>
+					<li>Mix for a wide variety of playback hardware</li>
+				</ul>
+
+				<h3>
+					Challenges on the wider web
+				</h3>
+
+				<p>The flat web is quiet and people get mad over autoplay. Headsets offer a new venue for audio but <span class="boom">how do we know when to use sound and what type to use?</span></p>
+
+				<p>Game consoles and fast-GPU PCs can be complex to support and the <span class="boom">backlit screens in mobile phones and laptops are relatively simple</span> compared to additive light field displays in augmented reality glasses and the optics in virtual reality headsets. Will we need to use separate workflows for each type of display and GPU?</p>
+
+				<p></p>
+
+				<h3>
+					What PotassiumES Provides
+				</h3>
+
+				<p><strong>Standard formats</strong>: PotassiumES includes a growing number of high quality importers that read the most common file formats for 3D and audio and then render them efficiently and beautifully. On less capable hardware it tries to degrade gracefully.</p>
+
+				<p class="big-boom">You don't have to learn all new editors and file formats!</p>
+
+				<p><strong>Fast iteration</strong>: Unlike native XR application tools, the web doesn't make you wait around for hours while you build a binary, put it on a device, and then fire it up. The PotassiumES build system is so fast that it's usually done before you have a chance to reload the page!</p>
+
+				<p class="big-boom">No more going for coffee while the app builds!</p>
+				<div style="position: relative; top: -15px; font-size: 20px; line-height: 0;">(unless you want to)</div>
+
+				<p><strong>Unified UIs and APIs</strong>: Designing and creating separate experiences for different display modes, input types, and locations in the world is too hard if we're using disconnected frameworks and tools. PotassiumES brings together the essential concepts of the wider web and gives you a single consistent framework to share your work.</p>
+			</section>
+
+			<section class="tab-content" id="text-content">
+				<h2>Narrative and Information</h2>
+
+				<h3>
+					What writers do
+				</h3>
+
+				<p>Storytellers...</p>
+				<ul>
+					<li>Create worlds, histories, and characters</li>
+					<li>Check for consistency across the entire experience</li>
+					<li>Bridge emotional connections to users</li>
+				</ul>
+
+				<p>UI writers...</p>
+				<ul>
+					<li>Write copy for UI elements</li>
+					<li>Prevent badd typoos and error grammars</li>
+					<li>Create and maintain the "voice" of the site</li>
+				</ul>
+
+				<h3>
+					Challenges on the wider web
+				</h3>
+
+				<p>Text is often hard to read in immersive headsets because the display technology isn't great or because the user has literally walked away. <span class="boom">Writing for spatial experiences can be more like writing for architectural signage than writing for the flat web.</span></p>
+
+				<p>Emergant narratives that work in immersive environments may not work on the flat web where linear stories still reign. How do we take advantage of the emotional thrill of immersive stories when <span class="boom">the user can switch to flat display mode</span> at any time?</p>
+
+				<p>The wider web is thoroughly global with most of the growth coming from regions with <span class="boom">different languages, cultures, time zones, currencies, alphabets, and beliefs</span>. The political divide and economic gap in the US is a drop in the bucket (a confusing phrase to non-English speakers). How do we write for the next billion web users?</p>   
+
+				<h3>
+					What PotassiumES Provides
+				</h3>
+
+				<p><strong>Localization and Translation</strong>: To reach the next billion web users it takes a team of people to translate between languages and cultures. PotassiumES provides a smooth path through translation services, copy editing, and eventually to publication.</p>
+
+				<p class="big-boom">Writers are welcome on the wider web.</p>
+
+				<p><strong>Voice commands</strong>: Words are the lingua franca of the flat web but the wider web listens to what we say. PotassiumES provides you with tools for the site to listen for spoken phrases and then map them to higher level user actions.</p>
+			</section>
+
+			<section class="tab-content" id="pm-content">
+				<h2>Product and Project Management</h2>
+
+				<h3>
+					Product managers...
+				</h3>
+				<ul>
+					<li>???</li>
+				</ul>
+
+				<h3>
+					Project managers...
+				</h3>
+				<ul>
+					<li>???</li>
+				</ul>
+
+				<h3>
+					Challenges on the wider web
+				</h3>
+
+				<p>When the web adds big new platforms it usually comes with a wave of tools that ask you to replace what already exists. <span class="boom">The web is too big to throw away and start over</span>, no matter how interesting or valuable XR could be.</p>
+
+				<h3>
+					What PotassiumES Provides
+				</h3>
+
+				<p><strong>Don't boil the ocean:</strong> PotassiumES is built using the most common front-end toolchain. An engineer can probably add PotassiumES to your existing build in less than a day and then add features <strong>on your schedule</strong>.</p>
+
+				<p class="big-boom">You can use what you have while you test the waters!</p>
+
+				<p><strong>Open up global markets:</strong> PotassiumES includes highly effective localization and translation APIs that work well with the tools used by third party localization services. It also takes advantage of off-the-shelf, web-scale infrastructure such as load balancers, content delivery networks, and the cloud based continuous integration that you'll need once the entire world is your userbase.</p>
+
+				<p class="big-boom">Your ops team already knows how to deploy the web.</p> 
+
+				<p><strong>Retraining is not an option:</strong> We've all spent years fostering our people and making sure that they're at the top of their field. PotassiumES is designed to be very familiar to your existing team members and also to people coming from other industries like 3D artists, sound designers, and immersive experience designers.</p>
+
+				<p class="big-boom">Empower your current team and attract new people.</p>
+
+			</section>
+
+			<section class="tab-content" id="tech-content">
+				<h2>Software Engineering and Ops</h2>
+
+				<h3>
+					Product engineers...
+				</h3>
+				<ul>
+					<li>Create new features</li>
+					<li>Maintain the health of the stack</li>
+					<li>Communicate technical possibilities and constraints</li>
+				</ul>
+				
+				<h3>
+					Operations engineers...
+				</h3>
+				<ul>
+					<li>Create stable deployments</li>
+					<li>Maintain the health of the service</li>
+					<li>Communicate operational possibilities and constraints</li>
+				</ul>
+				
+				<h3>
+					Challenges on the wider web
+				</h3>
+
+				<p>Wider web applications often integrate with <span class="boom">uniquely complex third party services</span> for environment recognition in augmented reality and with avatar services for virtual reality.</p>
+
+				<p>For multiuser applications, new infrastructure is required to calculate and replicate complex simulations underlying applications in which <span class="boom">even mild network lag and latency is unacceptable</span>.</p>
+
+				<p>Designers and PMs are learning how to communicate wider web designs and requirements so it can be hard to even understand what needs to be done!</p>
+
+				<h3>
+					What PotassiumES Provides
+				</h3>
+
+				<p>The <a href="../bill-of-goods/">core technologies</a> of PotassiumES are off-the-shelf and will easily integrate with your current front-end builds.</p>
+
+				<p class="big-boom">You already know how to build PotassiumES.</p>
+
+				<p>The <a href="https://github.com/potassiumes/potassium-components/">component library</a> that ships with PotassiumES is loaded with well commented examples for many common engineering tasks.</p>
+
+				<p class="big-boom">You won't need to start from scratch.</p>
+
+				<p>Every single aspect of PotassiumES is developed in public under the most permissive open source license and with the goal of fostering a healthy community of contributors.</p>
+
+				<p class="big-boom">You can always "view source".</p>
+			</section>
+			
+			<a href="#tabs">Zoom back up to the tabs</a>
+
+
+			<h2>Politics</h2>
+
+			<p>Long story short, all software is inherently political and the PotassiumES <a href="https://github.com/PotassiumES/potassium-es/blob/master/CODE%20OF%20CONDUCT.md">code of conduct</a> for contributors explicitly excludes fascists and other bad actors. If you're against that then find another tool.</p>
+
+			<h2>Iteration</h2>
+
+			<p>We're constantly looking for places where we can make a smooth on-ramp for existing and new web creators. If we're missing something, let us know in the <a href="https://github.com/PotassiumES/potassium-es/issues">Project Issues</a>.</p>
+
+
+		<p id="colophon">
+			(made with 💖 at <a href="https://transmutable.com">Transmutable</a>)
+		</p>
+
+	</body>
+</html>
