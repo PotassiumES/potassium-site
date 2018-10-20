@@ -6,54 +6,84 @@
 
 		<link rel="stylesheet" href="../css/site.css" type='text/css'>
 		<style>
-			body {
-				max-width: 600px;
-				margin: 0 auto;
-				padding: 30px 15px;
+			h1, h2 { text-align: center; }
+			#content h2 {
+				line-height: 1.2em;
+				margin-bottom: 20px;
 			}
-			h1 { text-align: center; }
-			h2 { line-height: 1.2em; }
-		</style>
 
+			#content {
+				text-align: left;
+			}
+
+			#content ul {
+				padding-left: 0;
+			}
+
+			#content li::before {
+				content: "🌸 ";
+			}
+
+			#content li {
+				display: block;
+			}
+
+			#grid {
+				display: grid;
+				grid-template: auto / 1fr 1fr;
+				gap: 10px;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>
-			<a href="../">&#x1F338 PotassiumES &#x1F338</a>
-		</h1>
+		<div id="content">
+			<h1>
+				<a href="../">&#x1F338 PotassiumES &#x1F338</a>
+			</h1>
 
-		<h2>Bill of Goods</h2>
+			<h2>Bill of Goods</h2>
 
-		Foundation:
-			Build system:
-			Node
-			Rollup
-			PostCSS + KSS
-			Prettifier
-			ESLint
-			ESDocs
+			<div id="grid">
+				<div>
+					<h3>Build system</h3>
+					<ul>
+						<li>Node</li>
+						<li>Rollup</li>
+						<li>PostCSS</li>
+						<li>Prettifier</li>
+						<li>ESLint</li>
+						<li>ESDocs</li>
+					</ul>
+				</div>
+				<div>
+					<h3>ECMA/Javascript</h3>
+					<ul>
+						<li>Modules</li>
+						<li>Classes</li>
+						<li>WebAudio</li>
+						<li>WebGL</li>
+						<li>WebXR</li>
+						<li>Three.js</li>
+					</ul>
+				</div>
+			</div>
+				<div>
+					<h3>Features</h3>
+					<ul>
+						<li>Display mode orchestration via WebXR</li>
+						<li>Unified UI system using Mozilla Action-input</li>
+						<li>CSS based styles for 3D with KSS</li>
+						<li>Fast DOM and SOM (spatial object model) creation</li>
+						<li>A large component library</li>
+						<li>Handy samples</li>
+						<li>Well documented open source code</li>
+						<li>Handy generated documentation</li>
+					</ul>
+				</div>
 
-			Vanilla ES:
-			Modules
-			Classes
-			WebAudio
-			WebGL
-			WebXR
-
-			Three.js
-
-		Features:
-			App
-			Component
-			KSS
-			el and graph
-			Component library
-			samples
-			docs
-
-
-		<p id="colophon">
-			(made with 💖 at <a href="https://transmutable.com">Transmutable</a>)
-		</p>
-
+			<p id="colophon">
+				(made with 💖 at <a href="https://transmutable.com">Transmutable</a>)
+			</p>
+		</div>
 	</body>
 </html>
